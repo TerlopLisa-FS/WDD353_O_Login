@@ -1,0 +1,64 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+        <% if (pagename === "index") {%>
+        <a class="navbar-brand" id="index" href="/" style="color: orange">Start Bootstrap</a>
+        <%} else {%>
+        <a class="navbar-brand" id="index" href="/" style="color: white">Start Bootstrap</a>
+        <%}%>
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto me-5">
+                <% if (pagename === "portfolio") {%>
+                <li class="nav-item mx-0 mx-lg-1"><a id="portfolio" class="nav-link py-3 px-0 px-lg-3 rounded" href="portfolio" style="color: orange">Portfolio</a></li>
+                <%} else {%>
+                <li class="nav-item mx-0 mx-lg-1"><a id="portfolio" class="nav-link py-3 px-0 px-lg-3 rounded" href="portfolio" style="color: white">Portfolio</a></li>
+                <%}%>
+                <% if (pagename === "about") {%>
+                <li class="nav-item mx-0 mx-lg-1"><a id="about"  class="nav-link py-3 px-0 px-lg-3 rounded" href="about" style="color: orange">About</a></li>
+                <%} else {%>
+                <li class="nav-item mx-0 mx-lg-1"><a id="about"  class="nav-link py-3 px-0 px-lg-3 rounded" href="about" style="color: white">About</a></li>
+                <%}%>
+
+                <%if(typeof(sess)!=="undefined" && sess.loggedin === true) {%>
+                    <%if(pagename === "profile") {%>
+                        <li class="nav-item mx-0 mx-lg-1"><a id="about"  class="nav-link py-3 px-0 px-lg-3 rounded" href="profile" style="color: orange">Profile</a></li>
+                    <%} else {%>
+                        <li class="nav-item mx-0 mx-lg-1"><a id="about"  class="nav-link py-3 px-0 px-lg-3 rounded" href="profile" style="color: white">Profile</a></li>
+                    <%}%>
+                    <li class="nav-item mx-0 mx-lg-1"><a id="about"  class="nav-link py-3 px-0 px-lg-3 rounded" href="logout" style="color: white">Logout</a></li>
+                <%}%>
+            </ul>
+        </div>
+    </div>
+    <%if(typeof(sess)==="undefined" || sess.loggedin === undefined) {%>
+    <div style="z-index: 12;
+    display: block;
+    text-align: right;
+    background-color: #333a40;
+    margin-right: 0rem;
+    padding-right: 1.25rem;
+    color: grey;
+    position: absolute;
+    width: 14rem;
+    margin-top: 3.5rem;
+    padding-top: .5rem;
+    right: 1rem;
+    border-radius: .75rem;
+    padding: .75rem;
+    font-size: 1rem;
+    ">
+        <form action="login" method="post">
+            <input type="email" name="email" placeholder="email"/>
+            <input type="password" name="password" placeholder="password"/>
+            <div style="padding-top: .4rem;">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <%}%>
+
+</nav>
